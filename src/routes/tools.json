@@ -239,6 +239,33 @@
             }
         ]
     },
+    "Random word everyday": {
+        "name": "",
+        "link": "/Random word everyday",
+        "description": "",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "Jayant Goyal",
+                "githubId": "jayantgoyal1502"
+            },
+            {
+                "name": "M Desing Raj",
+                "githubId": "Desing1joker"
+            },
+            {
+                "name": "TANVI SONTAKKE",
+                "githubId": "TanV-04"
+            },
+            {
+                "name": "SURABHI SATAM",
+                "githubId": "SurabhiSatam"
+            }
+        ]
+    },
     "random-data-generator": {
         "name": "Random Data Generator",
         "link": "/random-data-generator",
