@@ -155,6 +155,19 @@
             }
         ]
     },
+
+    "Gradient-generator": {
+        "name": "Gradient Generator",
+        "link": "/Gradient-generator",
+        "description": "The Gradient Generator is a tool for Developers which allows you to create Gradient between 2 Colors and Copy its CSS Output.",
+        "contributors": [
+            {
+                "name": "Yash Mankar",
+                "githubId": "AraeneaCLI"
+            }
+        ]
+    },
+
     "image-base64-decode": {
         "name": "Image Base64 Decode",
         "link": "/image-base64-decode",
@@ -315,6 +328,33 @@
             {
                 "name": "Hannan Satopay",
                 "githubId": "hannansatopay"
+            }
+        ]
+    },
+    "Text-Statistics": {
+        "name": "",
+        "link": "/Text-Statistics",
+        "description": "",
+        "contributors": [
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
             }
         ]
     },
