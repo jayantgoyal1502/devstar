@@ -67,39 +67,34 @@
   
   <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
   <div class="container">
-	<button on:click={getAnotherWord}>Another-Word</button>
-	<button on:click={() => getWord('noun')}><u>Noun</u></button>
-	<button on:click={() => getWord('verb')}><u>Verb</u></button>
-	<h1 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+	
+	<button class="text-gray-900 dark:text-white" on:click={getAnotherWord}>Another-Word</button>
+	<button class="text-gray-900 dark:text-white" on:click={() => getWord('noun')}>Noun</button>
+	<button class="text-gray-900 dark:text-white" on:click={() => getWord('verb')}>Verb</button>
+	<h1 class="text-blue-900 dark:text-blue-300" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
 	  {loading ? 'Loading...' : word}
 	</h1>
 	{#if !loading}
-	  <h3 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+	  <h3 class="text-blue-900 dark:text-blue-300" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
 		{definition}
 	  </h3>
 	{/if}
+	</div>
   </div>
-  </div>
+
   
   <style>
 	.container {
 	  text-align: center;
-	  margin-top: 50px;
+	  margin-top: 50px; 
 	}
 	button {
 	  margin: 10px;
-	  color: white;
 	}
 	h1, h3 {
 	  margin: 20px 0;
 	}
 	.loading {
 	  color: white;
-	}
-	.noun {
-	  color: lightblue;
-	}
-	.verb {
-	  color: lightblue;
 	}
   </style>
