@@ -99,6 +99,14 @@
 		}
 	}
 
+	async function start(hrs, min, sec, id){
+		const intervalID = intervalMap.get(id);
+		if(intervalID){
+			return;
+		}
+		startTimer(hrs, min, sec, id);
+	}
+
 	async function resetTimer(id){
 		const transaction = db.transaction(["times"], "readonly");
     	const objectStore = transaction.objectStore("times");
@@ -136,6 +144,8 @@
 	async function closeModal(){
 		showModal = false;
 		modalMessage = "";
+		alarm.pause();
+		alarm.currentTime = 0;
 	}
 
 
@@ -223,11 +233,11 @@
 	
 </script>
 
-<div class="card gap-16 items-center mx-auto max-w-screen-xl overflow-hidden rounded-lg">
+<div class="card gap-16 items-center mx-auto max-w-screen-xl overflow-hidden rounded-lg p-5">
 	<!-- Add tool here -->
-	<div class="flex space-x-4 justify-center my-5">
-		<button class="SelectButton bg-gray-800 text-white" on:click={selectTimer}> Timer </button>
-		<button class="SelectButton bg-gray-800 text-white" on:click={selectStopWatch}> Stop Watch </button>
+	<div class="flex space-x-4 justify-center my-5 flex-wrap">
+		<button class="SelectButton bg-gray-800 text-white p-3" on:click={selectTimer}> Timer </button>
+		<button class="SelectButton bg-gray-800 text-white p-3" on:click={selectStopWatch}> Stop Watch </button>
 	</div>
 
 	{#if showModal}
@@ -239,23 +249,23 @@
 	</div>
 	{/if}
 	
-	<div class="bg-gray-800">
+	<div class="bg-gray-800 p-5 w-full md:w-auto">
 		{#if timer}
-			<p class="flex text-white justify-center font-bold text-lg"> Timer Code </p>
-			<div class="flex text-black justify-center space-x-2 mt-3">
-				<input bind:value={hours} type="number" min="0" max="24" class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center">
+			<p class="flex text-white justify-center font-bold text-lg"> Timer </p>
+			<div class="flex text-black justify-center space-x-2 mt-3 flex-wrap">
+				<input bind:value={hours} type="number" min="0" max="24" class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center">
 				<p class="text-white text-4xl"> : </p>
-				<input bind:value={minutes} type="number" min="0" max="59" class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center">
+				<input bind:value={minutes} type="number" min="0" max="59" class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center">
 				<p class="text-white text-4xl"> : </p>
-				<input bind:value={seconds} type="number" min="0" max="59" class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center">
+				<input bind:value={seconds} type="number" min="0" max="59" class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center">
 			</div>
 			<div class="flex justify-center">
 				<p class="text-white font-bold text-3xl mt-3 mx-5">Reminder: </p>
-				<input bind:value={remString} class="bg-gray-300 border-black border-2 w-64 rounded-lg text-center p-2 my-2" minlength="0" maxlength="20" type="text">
+				<input bind:value={remString} class="bg-gray-300 border-black border-2 w-40 md:w-64 rounded-lg text-center p-2 my-2" minlength="0" maxlength="20" type="text">
 			</div>
 
 			<div class="flex justify-center mt-5">
-				<button on:click={saveTimer}> Save </button>
+				<button on:click={saveTimer} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Save </button>
 			</div>
 
 			<audio bind:this={alarm} src="src\routes\(tools)\Multi-timer\alarm.mp3"></audio>
@@ -263,30 +273,35 @@
 			<p class="flex justify-center text-4xl text-white pt-10 py-5"> Saved Timers </p>
 
 			{#each timers as t}
-				<div class="bg-gray-700 flex justify-center border-2 rounded-lg border-black mx-10 my-3">
-					<p class="text-center text-2xl text-white p-2 my-2">{t.RemString}</p>
-					<p class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center p-2 my-2">{t.Hours}</p>
-					<p class="text-white text-4xl mt-2"> : </p>
-					<p class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center p-2 my-2">{t.Minutes}</p>
-					<p class="text-white text-4xl mt-2"> : </p>
-					<p class="bg-gray-300 border-black border-2 w-32 rounded-lg text-center p-2 my-2">{t.Seconds}</p>
-					<button on:click={() => startTimer(t.Hours, t.Minutes, t.Seconds, t.id)} class="mx-2 my-2">Start</button>
-					<button on:click={() => stopTimer(t.id)} class="mx-2 my-2">Stop</button>
-					<button on:click={() => resetTimer(t.id)} class="mx-2 my-2">Reset</button>
-					<button on:click={() => deleteTimer(t.id)} class="mx-2 my-2">Delete</button>
+			<div class="bg-gray-700 flex flex-wrap justify-center border-2 rounded-lg border-black mx-10 my-3 p-2">
+				<p class="text-center text-2xl text-white p-2 md:mt-2">{t.RemString}</p>
+				<div class="flex items-center space-x-2 md:mt-1">
+					<p class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center p-2">{t.Hours}</p>
+					<p class="text-white text-4xl">:</p>
+					<p class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center p-2">{t.Minutes}</p>
+					<p class="text-white text-4xl">:</p>
+					<p class="bg-gray-300 border-black border-2 w-20 md:w-32 rounded-lg text-center p-2">{t.Seconds}</p>
 				</div>
+				<div class="flex flex-wrap justify-center mt-1 md:ml-5">
+					<button on:click={() => start(t.Hours, t.Minutes, t.Seconds, t.id)} class="mx-2 my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start</button>
+					<button on:click={() => stopTimer(t.id)} class="mx-2 my-2 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Stop</button>
+					<button on:click={() => resetTimer(t.id)} class="mx-2 my-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Reset</button>
+					<button on:click={() => deleteTimer(t.id)} class="mx-2 my-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+				</div>
+			</div>									
+			
 			{/each}
 
 			
 		{:else}
-			<div class="bg-[#323A49] w-2/3 text-center p-4 rounded-lg mx-auto">
-				<h1 id="display"  class="text-white text-8xl my-6">00:00:00.000</h1>
-				<div class="flex space-x-4 justify-center my-10 text-xl">
-					<button id="startPauseButton" on:click={toggleStopwatch}>Start</button>
-					<button on:click={resetStopwatch}>Reset</button>
-					<button on:click={recordLap}>Lap</button>
+			<div class="bg-[#323A49] w-full md:w-2/3 text-center p-4 rounded-lg mx-auto">
+				<h1 id="display"  class="text-white text-4xl my-6">00:00:00.000</h1>
+				<div class="flex space-x-4 justify-center my-10 text-lg flex-wrap">
+					<button id="startPauseButton" on:click={toggleStopwatch} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start</button>
+					<button on:click={resetStopwatch} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Reset</button>
+					<button on:click={recordLap} class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Lap</button>
 				</div>
-				<div id="laps" class="text-xl my-10 text-white"></div>
+				<div id="laps" class="text-lg md:text-xl my-10 text-white"></div>
 			</div>	
 		{/if}
 	</div>
@@ -295,7 +310,7 @@
 </div>
 
 <style>
-	.SelectButton {
+	/* .SelectButton {
 		display: flex;
 		justify-content: center;
 		gap: 10px;
@@ -310,7 +325,7 @@
 		border-radius: 5px;
 		cursor: pointer;
 		transition: background-color 0.3s;
-	}
+	} */
 
 	button:hover {
 		background-color: #0056b3;
@@ -323,11 +338,11 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+		background-color: rgba(0, 0, 0, 0.5);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		z-index: 1000; /* Ensure modal is on top of other content */
+		z-index: 1000; 
 	}
 
 	.modal-content {
