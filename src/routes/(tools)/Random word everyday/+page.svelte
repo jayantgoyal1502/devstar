@@ -67,14 +67,14 @@
   
   <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
 		<div class="container">
-			<button on:click={getAnotherWord}>Another-Word</button>
-			<button on:click={() => getWord('noun')}>Noun</button>
-			<button on:click={() => getWord('verb')}>Verb</button>
-			<h1 class="text-4xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+			<button class="text-black dark:text-white" on:click={getAnotherWord}>Another-Word</button>
+			<button class="text-black dark:text-white" on:click={() => getWord('noun')}>Noun</button>
+			<button class="text-black dark:text-white" on:click={() => getWord('verb')}>Verb</button>
+			<h1 class="text-black dark:text-white text-4xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
 	  		{loading ? 'Loading...' : word}
 			</h1>
 			{#if !loading}
-				<h3 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+				<h3 class="text-black dark:text-white" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
 					{definition}
 	  		</h3>
 			{/if}
@@ -89,34 +89,27 @@
 	}
 	.container {
 		text-align: center;
-	  margin-top: 50px;
+		margin-top: 50px;
 		margin-bottom: 50px;
 	}
 	
 	button {
-	  margin: 10px;
+		margin: 10px;
 		padding: 10px 20px;
 		font-size: 16px;
-		color: white;
+		background-color: #1C64F2;
+		border: none;
+		border-radius: 8px; 
 	}
 	
 	button:hover {
 		cursor: pointer;
 		border-radius: 8px;
-		background-color: rgb(92, 135, 150);
+		background-color: #4A90E2;
   }
 
 	h1, h3 {
 	  margin: 20px 0;
 		font-family: Arial, sans-serif;
-	}
-	.loading {
-      color: white;
-	}
-	.noun {
-	  color: lightblue;
-	}
-	.verb {
-	  color: lightblue;
 	}
   </style>
