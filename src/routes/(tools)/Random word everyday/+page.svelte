@@ -88,13 +88,22 @@
 	  text-align: center;
 	  margin-top: 50px; 
 	}
+	
 	button {
 	  margin: 10px;
 	}
+	
+	button:hover {
+		cursor: pointer;
+		border-radius: 8px;
+		background-color: rgb(92, 135, 150);
+  }
+
 	h1, h3 {
 	  margin: 20px 0;
+		font-family: Arial, sans-serif;
 	}
 	.loading {
-	  color: white;
+      color: white;
 	}
   </style>
