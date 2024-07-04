@@ -66,38 +66,31 @@
   </script>
   
   <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
-		<div class="container">
-			<button on:click={getAnotherWord}>Another-Word</button>
-			<button on:click={() => getWord('noun')}>Noun</button>
-			<button on:click={() => getWord('verb')}>Verb</button>
-			<h1 class="text-4xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
-	  		{loading ? 'Loading...' : word}
-			</h1>
-			{#if !loading}
-				<h3 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
-					{definition}
-	  		</h3>
-			{/if}
-  	</div>
+  <div class="container">
+	
+	<button class="text-gray-900 dark:text-white" on:click={getAnotherWord}>Another-Word</button>
+	<button class="text-gray-900 dark:text-white" on:click={() => getWord('noun')}>Noun</button>
+	<button class="text-gray-900 dark:text-white" on:click={() => getWord('verb')}>Verb</button>
+	<h1 class="text-blue-900 dark:text-blue-300" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+	  {loading ? 'Loading...' : word}
+	</h1>
+	{#if !loading}
+	  <h3 class="text-blue-900 dark:text-blue-300" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'}>
+		{definition}
+	  </h3>
+	{/if}
+	</div>
   </div>
 
-  <style>	
-	.card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	}
+  
+  <style>
 	.container {
-		text-align: center;
-	  margin-top: 50px;
-		margin-bottom: 50px;
+	  text-align: center;
+	  margin-top: 50px; 
 	}
 	
 	button {
 	  margin: 10px;
-		padding: 10px 20px;
-		font-size: 16px;
-		color: white;
 	}
 	
 	button:hover {
@@ -112,11 +105,5 @@
 	}
 	.loading {
       color: white;
-	}
-	.noun {
-	  color: lightblue;
-	}
-	.verb {
-	  color: lightblue;
 	}
   </style>
