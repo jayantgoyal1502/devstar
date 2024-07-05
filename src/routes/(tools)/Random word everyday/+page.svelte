@@ -123,7 +123,7 @@
 			<button class="text-black dark:text-white" on:click={() => getWord('verb')}><u>Verb</u></button>
 			<button class="text-black dark:text-white" on:click={() => getAdjective()}><u>Adjective</u></button>
 			<button class="text-black dark:text-white" on:click={() => getQuote()}><u>Quote</u></button>
-			<h1 class="text-black dark:text-white text-3xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
+			<h1 class="text-black dark:text-white text-2xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
 					{loading ? 'Loading...' : word}
 			</h1>
 			{#if !loading && definition}
