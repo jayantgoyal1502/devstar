@@ -1,50 +1,4 @@
 {
-    "Gradient-generator": {
-        "name": "Gradient Generator",
-        "link": "/Gradient-generator",
-        "description": "The Gradient Generator is a tool for Developers which allows you to create Gradient between 2 Colors and Copy its CSS Output.",
-        "contributors": [
-            {
-                "name": "Yash Mankar",
-                "githubId": "AraeneaCLI"
-            }
-        ]
-    },
-    "Random word everyday": {
-        "name": "Random Word Everyday",
-        "link": "/Random word everyday",
-        "description": "Welcome to Random Word Everyday, your go-to destination for discovering a new word each day and much more. This website offers a chance to expand your vocabulary daily.",
-        "contributors": [
-            {
-                "name": "ANKITA MISHRA",
-                "githubId": "ANKITAMISHRA29"
-            },
-            {
-                "name": "Jayant Goyal",
-                "githubId": "jayantgoyal1502"
-            },
-            {
-                "name": "M Desing Raj",
-                "githubId": "Desing1joker"
-            },
-            {
-                "name": "TANVI SONTAKKE",
-                "githubId": "TanV-04"
-            },
-            {
-                "name": "SURABHI SATAM",
-                "githubId": "SurabhiSatam"
-            },
-            {
-                "name": "HIMANI KORGAONKAR",
-                "githubId": "Himani9922"
-            },
-            {
-                "name": "Urvi Joshi",
-                "githubId": "UrviJoshi24"
-            }
-        ]
-    },
     "add-prefix-suffix": {
         "name": "Add Prefix and Suffix",
         "link": "/add-prefix-suffix",
@@ -163,6 +117,17 @@
             }
         ]
     },
+    "Gradient-generator": {
+        "name": "Gradient Generator",
+        "link": "/Gradient-generator",
+        "description": "The Gradient Generator is a tool for Developers which allows you to create Gradient between 2 Colors and Copy its CSS Output.",
+        "contributors": [
+            {
+                "name": "Yash Mankar",
+                "githubId": "AraeneaCLI"
+            }
+        ]
+    },
     "image-base64-decode": {
         "name": "Image Base64 Decode",
         "link": "/image-base64-decode",
@@ -271,6 +236,41 @@
             {
                 "name": "Rifat Perween",
                 "githubId": "rifatperween"
+            }
+        ]
+    },
+    "Random word everyday": {
+        "name": "",
+        "link": "/Random word everyday",
+        "description": "",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "Jayant Goyal",
+                "githubId": "jayantgoyal1502"
+            },
+            {
+                "name": "M Desing Raj",
+                "githubId": "Desing1joker"
+            },
+            {
+                "name": "TANVI SONTAKKE",
+                "githubId": "TanV-04"
+            },
+            {
+                "name": "SURABHI SATAM",
+                "githubId": "SurabhiSatam"
+            },
+            {
+                "name": "HIMANI KORGAONKAR",
+                "githubId": "Himani9922"
+            },
+            {
+                "name": "Urvi Joshi",
+                "githubId": "UrviJoshi24"
             }
         ]
     },
