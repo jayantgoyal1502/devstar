@@ -1,47 +1,40 @@
 <script>
-     import { onMount } from 'svelte';
-    let word = "";
-    let definition = "";
-    let quote = "";
-    let tongueTwister = "";
-    let showQuote = false;
-    let showTongueTwister = false;
-    let loading = false;
-    let error = "";
-    let lastType = "noun"; // Default to noun initially
-    let wordOfTheDay = "";
-    let definitionOfTheDay = "";
-    let showWordOfTheDay = false;
-    let currentDate = "";
-
+    import { onMount } from 'svelte';
+   let word = "";
+   let definition = "";
+   let quote = "";
+   let tongueTwister = "";
+   let showQuote = false;
+   let showTongueTwister = false;
+   let loading = false;
+   let error = "";
+   let lastType = "noun"; // Default to noun initially
+   let wordOfTheDay = "";
+   let definitionOfTheDay = "";
+   let showWordOfTheDay = false;
+   let currentDate = "";
+    
     // Function to fetch a random word and its definition
     async function getWord(type) {
         const url = "https://random-word-api.herokuapp.com/word";
         const definitionUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
         let retries = 0;
         const maxRetries = 10;
-
         loading = true;
         word = "";
         definition = "";
-        quote = ""; // Clear quote 
-        tongueTwister = ""; // Clear tongue twister
+        quote = ""; // Clear quote
         showQuote = false;
-        showTongueTwister = false;
-
         lastType = type;
-
         while (retries < maxRetries) {
             try {
                 // Fetching the word
                 const wordResponse = await fetch(url);
                 const wordData = await wordResponse.json();
                 const fetchedWord = wordData[0];
-
                 // Fetching the definition
                 const responseDef = await fetch(`${definitionUrl}${fetchedWord}`);
                 const dataDef = await responseDef.json();
-
                 if (dataDef.title === "No Definitions Found") {
                     definition = "No definition found for this word.";
                 } else {
@@ -59,15 +52,13 @@
             }
             retries++;
         }
-
         if (!word) {
             word = `Couldn't find a ${type} after ${maxRetries} attempts.`;
             definition = "";
         }
-
         loading = false;
     }
-
+    
     // Fetch another word of the last selected type
     async function getAnotherWord() {
         if (lastType) {
@@ -129,7 +120,7 @@
 
         loading = false;
     }
-
+  
     // Function to fetch a random Tongue Twister
     async function getTongueTwister() {
         const url = "https://93a54bc7-4d9e-420a-b113-e49c4ef28649.mock.pstmn.io/";
@@ -163,7 +154,6 @@
         }
     }
 
-    
     function getCurrentDate() {
         const today = new Date();
         const year = today.getFullYear();
@@ -210,66 +200,76 @@
     onMount(() => {
         loadWordOfTheDay();
     });
-</script>
 
-<div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-1 overflow-hidden rounded-lg">
+  </script>
+  
+  <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
     <div class="container">
-        <button on:click={getAnotherWord}>Another Word</button>
-        <button on:click={() => getWord('noun')}><u>Noun</u></button>
-        <button on:click={() => getWord('verb')}><u>Verb</u></button>
-        <button on:click={() => getAdjective()}><u>Adjective</u></button>
-        <button on:click={() => getQuote()}><u>Quote</u></button>
-        <button on:click={() => getTongueTwister()}><u>Tongue Twister</u></button>
-        <h1 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
-            {loading ? 'Loading...' : word}
-        </h1>
-        {#if !loading && definition}
-            <h3 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
-                {definition}
-            </h3>
-        {/if}
-        {#if !loading && showQuote}
-            <h3 class:loading={loading}>
-                {quote}
-            </h3>
-        {/if}
-        {#if !loading && showTongueTwister}
-            <h3 class:loading={loading}>
-                {tongueTwister}
-            </h3>
-        {/if}
-        <hr>
-        {#if showWordOfTheDay}
-        <h3>Word of the Day: {wordOfTheDay}</h3>
-        <p>Definition: {definitionOfTheDay}</p>
-    {/if}
+      <button class="text-white" on:click={getAnotherWord}>Another Word</button>
+      <button class="text-white" on:click={() => getWord('noun')}><u>Noun</u></button>
+      <button class="text-white" on:click={() => getWord('verb')}><u>Verb</u></button>
+      <button class="text-white" on:click={() => getAdjective()}><u>Adjective</u></button>
+      <button class="text-white" on:click={() => getQuote()}><u>Quote</u></button>
+      <button class="text-white" on:click={() => getTongueTwister()}><u>Tongue Twister</u></button>
+      <h1 class="text-black dark:text-white text-2xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
+        {loading ? 'Loading...' : word}
+      </h1>
+      {#if !loading && definition}
+        <h3 class="text-black dark:text-white text-xl" class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
+          {definition}
+        </h3>
+      {/if}
+      {#if !loading && showQuote}
+        <h3 class="text-black dark:text-white text-2xl">
+          {quote}
+        </h3>
+      {/if}
+      {#if !loading && showTongueTwister}
+      <h3 class="text-black dark:text-white text-2xl" class:loading={loading}>
+          {tongueTwister}
+      </h3>
+  {/if}
+  <hr>
+  {#if showWordOfTheDay}
+  <h1 class="text-black dark:text-white text-2xl">Word of the Day: {wordOfTheDay}</h1>
+  <h3 class="text-black dark:text-white text-xl">Definition: {definitionOfTheDay}</h3>
+{/if}
     </div>
-</div>
-
-<style>
+  </div>
+  
+  <style>
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+    }
     .container {
-        text-align: center;
-        margin-top: 50px;
-        color: lightblue;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
     button {
-        margin: 5px;
-        color: white;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1C64F2;
+      border: none;
+      border-radius: 8px;
+      font-weight: medium;
+      color: white; /* Ensure button text is always white */
+    }
+    button:hover {
+      cursor: pointer;
+      border-radius: 8px;
+      background-color: #A3CFF3;
     }
     h1, h3 {
-        margin: 20px 0;
-        color: lightblue;
+      margin: 20px 0;
     }
     .loading {
-        color: white;
+      font-family: cursive;
+      font-style: italic;
     }
-    .noun {
-        color: lightblue;
-    }
-    .verb {
-        color: lightblue;
-    }
-    .adjective {
-        color: lightblue;
-    }
-</style>
+  </style>
+  
