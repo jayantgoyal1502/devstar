@@ -272,4 +272,3 @@
       font-style: italic;
     }
   </style>
-  
