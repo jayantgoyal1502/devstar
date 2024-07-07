@@ -253,7 +253,7 @@
       margin: 10px;
       padding: 10px 20px;
       font-size: 16px;
-      background-color: black;
+      background-color: #1C64F2;
       border: none;
       border-radius: 8px;
       font-weight: medium;
