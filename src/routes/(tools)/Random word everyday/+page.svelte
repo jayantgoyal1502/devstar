@@ -1,11 +1,18 @@
 <script>
+     import { onMount } from 'svelte';
     let word = "";
     let definition = "";
     let quote = "";
-    let showQuote = false; 
+    let tongueTwister = "";
+    let showQuote = false;
+    let showTongueTwister = false;
     let loading = false;
     let error = "";
     let lastType = "noun"; // Default to noun initially
+    let wordOfTheDay = "";
+    let definitionOfTheDay = "";
+    let showWordOfTheDay = false;
+    let currentDate = "";
 
     // Function to fetch a random word and its definition
     async function getWord(type) {
@@ -18,7 +25,10 @@
         word = "";
         definition = "";
         quote = ""; // Clear quote 
-        showQuote = false; 
+        tongueTwister = ""; // Clear tongue twister
+        showQuote = false;
+        showTongueTwister = false;
+
         lastType = type;
 
         while (retries < maxRetries) {
@@ -58,15 +68,46 @@
         loading = false;
     }
 
+    // Fetch another word of the last selected type
+    async function getAnotherWord() {
+        if (lastType) {
+            await getWord(lastType);
+        }
+    }
+
+    // Function to fetch a random quote
+    async function getQuote() {
+        loading = true;
+        word = ""; // Clear word 
+        definition = ""; // Clear definition 
+        quote = "";
+        tongueTwister = ""; // Clear tongue twister
+        showQuote = false; // Reset visibility
+        showTongueTwister = false;
+        try {
+            const response = await fetch("https://api.quotable.io/random");
+            const data = await response.json();
+            quote = data.content;
+            showQuote = true; // Show quote
+        } catch (error) {
+            console.log(error);
+            error = "Could not fetch a quote.";
+        }
+        loading = false;
+    }
+
     // Function to fetch random adjectives
     async function getAdjective() {
-        const url = "https://a883c9d9-d3f7-44a6-9d0b-f5f43c0d5931.mock.pstmn.io";
+        const url = "https://a883c9d9-d3f7-44a6-9d0b-f5f43c0d5931.mock.pstmn.io/";
 
         loading = true;
         word = "";
         definition = "";
         quote = ""; // Clear quote 
-        showQuote = false; 
+        tongueTwister = ""; // Clear tongue twister
+        showQuote = false;
+        showTongueTwister = false;
+
 
         try {
             const response = await fetch(url);
@@ -89,40 +130,96 @@
         loading = false;
     }
 
-    // Fetch another word of the last selected type
-    async function getAnotherWord() {
-        if (lastType) {
-            await getWord(lastType);
+    // Function to fetch a random Tongue Twister
+    async function getTongueTwister() {
+        const url = "https://93a54bc7-4d9e-420a-b113-e49c4ef28649.mock.pstmn.io/";
+
+        loading = true;
+        word = ""; // Clear word
+        definition = ""; // Clear definition
+        quote = ""; // Clear quote
+        tongueTwister = ""; // Clear tongue twister
+        showQuote = false; // Reset visibility
+        showTongueTwister = false;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Assuming the API returns an array of objects with 'twister'
+            if (data && data.length > 0) {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                tongueTwister = data[randomIndex].twister;
+                showTongueTwister = true; // Set visibility to true
+            } else {
+                word = "No Tongue Twisters";
+                definition = "";
+            }
+        } catch (error) {
+            console.error(error);
+            word = "Could not fetch tongue twisters.";
+        } finally {
+            loading = false;
         }
     }
 
-    // Function to fetch a random quote
-    async function getQuote() {
-        loading = true;
-        word = ""; // Clear word 
-        definition = ""; // Clear definition 
-        quote = "";
-        showQuote = false; // Reset visibility
-        try {
-            const response = await fetch("https://api.quotable.io/random");
-            const data = await response.json();
-            quote = data.content;
-            showQuote = true; // Show quote
-        } catch (error) {
-            console.log(error);
-            error = "Could not fetch a quote.";
-        }
-        loading = false;
+    
+    function getCurrentDate() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     }
+    async function fetchWordOfTheDay() {
+        const url = "https://7ccf6875-f278-4b2b-989e-c87db3e88a0d.mock.pstmn.io"; // Replace with your API endpoint
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data && data.length > 0) {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const wordData = data[randomIndex];
+                wordOfTheDay = wordData.word;
+                definitionOfTheDay = wordData.definition;
+                showWordOfTheDay = true;
+                localStorage.setItem('wordOfTheDay', JSON.stringify({ date: currentDate, word: wordOfTheDay, definition: definitionOfTheDay }));
+            } else {
+                wordOfTheDay = "No Word of the Day found.";
+                definitionOfTheDay = "";
+            }
+        } catch (error) {
+            console.error(error);
+            wordOfTheDay = "Could not fetch Word of the Day.";
+            definitionOfTheDay = "";
+        }
+    }
+
+    function loadWordOfTheDay() {
+        const storedData = JSON.parse(localStorage.getItem('wordOfTheDay'));
+        if (storedData && storedData.date === currentDate) {
+            wordOfTheDay = storedData.word;
+            definitionOfTheDay = storedData.definition;
+            showWordOfTheDay = true;
+        } else {
+            fetchWordOfTheDay();
+        }
+    }
+
+    onMount(() => {
+        loadWordOfTheDay();
+    });
 </script>
 
-<div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
+<div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-1 overflow-hidden rounded-lg">
     <div class="container">
         <button on:click={getAnotherWord}>Another Word</button>
         <button on:click={() => getWord('noun')}><u>Noun</u></button>
         <button on:click={() => getWord('verb')}><u>Verb</u></button>
         <button on:click={() => getAdjective()}><u>Adjective</u></button>
         <button on:click={() => getQuote()}><u>Quote</u></button>
+        <button on:click={() => getTongueTwister()}><u>Tongue Twister</u></button>
         <h1 class:loading={loading} class:noun={lastType === 'noun'} class:verb={lastType === 'verb'} class:adjective={lastType === 'adjective'}>
             {loading ? 'Loading...' : word}
         </h1>
@@ -136,6 +233,16 @@
                 {quote}
             </h3>
         {/if}
+        {#if !loading && showTongueTwister}
+            <h3 class:loading={loading}>
+                {tongueTwister}
+            </h3>
+        {/if}
+        <hr>
+        {#if showWordOfTheDay}
+        <h3>Word of the Day: {wordOfTheDay}</h3>
+        <p>Definition: {definitionOfTheDay}</p>
+    {/if}
     </div>
 </div>
 
@@ -143,9 +250,10 @@
     .container {
         text-align: center;
         margin-top: 50px;
+        color: lightblue;
     }
     button {
-        margin: 10px;
+        margin: 5px;
         color: white;
     }
     h1, h3 {
