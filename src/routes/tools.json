@@ -225,6 +225,33 @@
             }
         ]
     },
+    "Multi-timer": {
+        "name": "Multi Timer (With Alarm)",
+        "link": "/Multi-timer",
+        "description": "Build different times like: Count Up, Count Down, Reminder",
+        "contributors": [
+            {
+                "name": "Ishaan Bhela",
+                "githubId": "Ishaan453"
+            },
+            {
+                "name": "Chirag Dave",
+                "githubId": "chirag132002"
+            },
+            {
+                "name": "Saksham Porwal",
+                "githubId": "Sam9733"
+            },
+            {
+                "name": "Jay Trivedi",
+                "githubId": "Jayu1214"
+            },
+            {
+                "name": "Sameehan Joshi",
+                "githubId": "Sameehan25"
+            }
+        ]
+    },
     "neumorphism-generator": {
         "name": "Neumorphism Generator",
         "link": "/neumorphism-generator",
