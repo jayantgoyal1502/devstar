@@ -12,7 +12,7 @@
  let wordOfTheDay = "";
  let definitionOfTheDay = "";
  let showWordOfTheDay = false;
- let currentDate = "";
+ let currentDate = getCurrentDate();
   
   // Function to fetch a random word and its definition
   async function getWord(type) {
