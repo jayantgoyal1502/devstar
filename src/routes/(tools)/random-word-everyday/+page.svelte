@@ -14,57 +14,6 @@
  let showWordOfTheDay = false;
  let currentDate = getCurrentDate();
   
-  // Function to fetch a random word and its definition
-  async function getWord(type) {
-      const url = "https://random-word-api.herokuapp.com/word";
-      const definitionUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-      let retries = 0;
-      const maxRetries = 10;
-      loading = true;
-      word = "";
-      definition = "";
-      quote = ""; // Clear quote
-      showQuote = false;
-      lastType = type;
-      while (retries < maxRetries) {
-          try {
-              // Fetching the word
-              const wordResponse = await fetch(url);
-              const wordData = await wordResponse.json();
-              const fetchedWord = wordData[0];
-              // Fetching the definition
-              const responseDef = await fetch(`${definitionUrl}${fetchedWord}`);
-              const dataDef = await responseDef.json();
-              if (dataDef.title === "No Definitions Found") {
-                  definition = "No definition found for this word.";
-              } else {
-                  const meanings = dataDef[0].meanings;
-                  const foundMeaning = meanings.find(meaning => meaning.partOfSpeech === type);
-                  if (foundMeaning) {
-                      word = fetchedWord;
-                      definition = foundMeaning.definitions[0].definition;
-                      break;
-                  }
-              }
-          } catch (error) {
-              console.log(error);
-              error = "Could not fetch a word or its definition.";
-          }
-          retries++;
-      }
-      if (!word) {
-          word = `Couldn't find a ${type} after ${maxRetries} attempts.`;
-          definition = "";
-      }
-      loading = false;
-  }
-  
-  // Fetch another word of the last selected type
-  async function getAnotherWord() {
-      if (lastType) {
-          await getWord(lastType);
-      }
-  }
 
   // Function to fetch a random quote
   async function getQuote() {
@@ -116,6 +65,105 @@
       } catch (error) {
           console.log(error);
           error = "Could not fetch adjectives.";
+      }
+
+      loading = false;
+  }
+
+  async function getVerb() {
+      const url = "https://bf684cca-f74a-4733-b103-0c362ee86e81.mock.pstmn.io/";
+
+      loading = true;
+      word = "";
+      definition = "";
+      quote = ""; // Clear quote 
+      tongueTwister = ""; // Clear tongue twister
+      showQuote = false;
+      showTongueTwister = false;
+
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          // Assuming the API returns an array of objects with 'word' and 'description'
+          if (data && data.length > 0) {
+              const randomIndex = Math.floor(Math.random() * data.length);
+              word = data[randomIndex].word;
+              definition = data[randomIndex].meaning;
+          } else {
+              word = `No verbs found.`;
+              definition = "";
+          }
+      } catch (error) {
+          console.log(error);
+          error = "Could not fetch verbs.";
+      }
+
+      loading = false;
+  }
+
+  async function getNoun() {
+      const url = "https://38b7e161-c5fc-418e-9c22-80637dc94684.mock.pstmn.io/";
+
+      loading = true;
+      word = "";
+      definition = "";
+      quote = ""; // Clear quote 
+      tongueTwister = ""; // Clear tongue twister
+      showQuote = false;
+      showTongueTwister = false;
+
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          // Assuming the API returns an array of objects with 'word' and 'description'
+          if (data && data.length > 0) {
+              const randomIndex = Math.floor(Math.random() * data.length);
+              word = data[randomIndex].word;
+              definition = data[randomIndex].meaning;
+          } else {
+              word = `No noun found.`;
+              definition = "";
+          }
+      } catch (error) {
+          console.log(error);
+          error = "Could not fetch nouns.";
+      }
+
+      loading = false;
+  }
+
+  async function getAnotherWord() {
+      const url = "https://38b7e161-c5fc-418e-9c22-80637dc94684.mock.pstmn.io/";
+
+      loading = true;
+      word = "";
+      definition = "";
+      quote = ""; // Clear quote 
+      tongueTwister = ""; // Clear tongue twister
+      showQuote = false;
+      showTongueTwister = false;
+
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          // Assuming the API returns an array of objects with 'word' and 'description'
+          if (data && data.length > 0) {
+              const randomIndex = Math.floor(Math.random() * data.length);
+              word = data[randomIndex].word;
+              definition = data[randomIndex].meaning;
+          } else {
+              word = `No word found.`;
+              definition = "";
+          }
+      } catch (error) {
+          console.log(error);
+          error = "Could not fetch any word.";
       }
 
       loading = false;
@@ -205,9 +253,9 @@
 
 <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
   <div class="container">
-    <button class="text-white" on:click={getAnotherWord}>Another Word</button>
-    <button class="text-white" on:click={() => getWord('noun')}><u>Noun</u></button>
-    <button class="text-white" on:click={() => getWord('verb')}><u>Verb</u></button>
+    <button class="text-white" on:click={() => getAnotherWord()}><u>Another Word</u></button>
+    <button class="text-white" on:click={() => getNoun()}><u>Noun</u></button>
+    <button class="text-white" on:click={() => getVerb()}><u>Verb</u></button>
     <button class="text-white" on:click={() => getAdjective()}><u>Adjective</u></button>
     <button class="text-white" on:click={() => getQuote()}><u>Quote</u></button>
     <button class="text-white" on:click={() => getTongueTwister()}><u>Tongue Twister</u></button>
