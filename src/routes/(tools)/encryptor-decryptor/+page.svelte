@@ -50,7 +50,7 @@
 		}
 	}
 
-	// Function to download PDF done by RAM
+	// Function to download PDF done by RIYA
 	function downloadPDF() {
 		const { jsPDF } = window.jspdf;
 		const doc = new jsPDF();
@@ -74,7 +74,7 @@
 		}
 	});
 
-	// Function to download TXT done by RIYA
+	// Function to download TXT done by RAM
 	function downloadTXT() {
         const decryptInput = document.getElementById("textbox-decrypt").value;
         const decryptedOutput = typeof decryptOutput !== 'undefined' ? decryptOutput : 'No output available';
