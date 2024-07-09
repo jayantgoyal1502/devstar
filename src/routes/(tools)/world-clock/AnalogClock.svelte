@@ -86,9 +86,9 @@
   }
 </script>
 
-<div class="analog-clock-container border-yellow-500 border-4 p-4 w-full">
+<div class="analog-clock-container p-4 w-full text-2xl">
   <canvas bind:this={canvas} width="200" height="200"></canvas>
-  <p class="show-date text-lg">{currentTime}</p>
+  <p class="show-date">{currentTime}</p>
   <p class="country-name text-md mt-2">{city}, {country}</p>
 </div>
 
