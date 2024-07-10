@@ -30,12 +30,12 @@
 </script>
 
 <div class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg">
-	<div class="flex flex-col dark:text-white">
-		<div class="p-4 w-full float:right">
+	<div class="flex flex-col dark:text-white ml-auto">
+		<div class="p-4 w-full">
 			<div class="flex justify-between items-center mb-4">
 				<h1 class="text-4xl font-semibold">{selectedTimezone}</h1>
 				<div class="select dark:text-black">
-					<select name="locales" id="list" bind:value={selectedTimezone} on:change={handleTimezoneChange} class="p-2 border rounded">
+					<select name="locales" id="list" bind:value={selectedTimezone} on:change={handleTimezoneChange} class="p-2 border rounded w-48">
 						{#each timeZoneList.sort() as locale}
 							<option value={locale}>{locale}</option>
 						{/each}
