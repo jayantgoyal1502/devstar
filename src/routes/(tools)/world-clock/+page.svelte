@@ -33,7 +33,7 @@
 	<div class="flex flex-col dark:text-white">
 		<div class="p-4 w-full float:right">
 			<div class="flex justify-between items-center mb-4">
-			<h1 class="text-4xl font-semibold">{selectedTimezone}</h1>
+				<h1 class="text-4xl font-semibold">{selectedTimezone}</h1>
 				<div class="select dark:text-black">
 					<select name="locales" id="list" bind:value={selectedTimezone} on:change={handleTimezoneChange} class="p-2 border rounded">
 						{#each timeZoneList.sort() as locale}
@@ -45,9 +45,11 @@
 			<p class="show-date text-6xl">{currentTime}</p>
 		</div>
 		<div class="flex justify-around items-center p-4 mt-4 gap-3">
-			{#each timezones as { city, country, timezone }}
+			{#each timezones as { city, country, timezone }, index}
 				<AnalogClock {city} {country} {timezone} />
-				<div class="h-52 border border-l-2 border-gray-500"></div>
+				{#if index < timezones.length - 1}
+					<div class="h-52 border border-l-2 border-gray-500"></div>
+				{/if}
 			{/each}
 		</div>
 	</div>
