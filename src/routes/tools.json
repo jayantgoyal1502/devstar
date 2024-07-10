@@ -80,25 +80,7 @@
             }
         ]
     },
-    "/bionic-reading-converter": {
-        "name": "Bionic Reading Converter",
-        "link": "/bionic-reading-converter",
-        "description": "Enhances texts so that the most concise parts of words are highlighted.",
-        "contributors": [
-            {
-                "name": "Yash Jain",
-                "githubId": "YashJain999"
-            },
-            {
-                "name": "Shaik Shams Tabrez",
-                "githubId": "shaik-shams-tabrez"
-            },
-            {
-                "name": "Pranjal Abhishek Singh",
-                "githubId": "PranjalSingh31"
-            }
-        ]
-    },
+
     "bionic-reading-converter": {
         "name": "Bionic Reading Converter",
         "link": "/bionic-reading-converter",

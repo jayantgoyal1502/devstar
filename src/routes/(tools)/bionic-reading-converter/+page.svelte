@@ -2,8 +2,6 @@
 	let inputText = "";
 	let bionicText = "";
 	let error = null;
-	let filee = null;
-	let input;
 
 	const fetchBionicReading = async () => {
 		const url = "https://bionic-reading1.p.rapidapi.com/convert";
