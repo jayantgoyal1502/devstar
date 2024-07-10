@@ -35,7 +35,7 @@
   function drawFace(ctx, radius) {
       ctx.beginPath();
       ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = 'black';
       ctx.fill();
       ctx.stroke();
       ctx.beginPath();
@@ -45,9 +45,10 @@
   }
 
   function drawNumbers(ctx, radius) {
-      ctx.font = `${radius * 0.15}px arial`;
+      ctx.font = `${radius * 0.18}px arial`;
       ctx.textBaseline = 'middle';
       ctx.textAlign = 'center';
+      ctx.fillStyle = 'white';
       for (let num = 1; num <= 12; num++) {
           const ang = (num * Math.PI) / 6;
           ctx.rotate(ang);
@@ -67,7 +68,7 @@
 
       // Minute
       const minuteAngle = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
-      drawHand(ctx, minuteAngle, radius * 0.8, radius * 0.07);
+      drawHand(ctx, minuteAngle, radius * 0.8, radius * 0.05);
 
       // Second
       const secondAngle = (second * Math.PI) / 30;
@@ -78,6 +79,7 @@
       ctx.beginPath();
       ctx.lineWidth = width;
       ctx.lineCap = 'round';
+      ctx.strokeStyle = 'white';
       ctx.moveTo(0, 0);
       ctx.rotate(pos);
       ctx.lineTo(0, -length);
@@ -99,5 +101,7 @@
   canvas {
       background: white;
       border-radius: 50%;
+      border: 5px solid #000;
+      padding: 5px;
   }
 </style>

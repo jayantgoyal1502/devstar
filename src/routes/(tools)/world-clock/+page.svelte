@@ -44,10 +44,10 @@
 			</div>
 			<p class="show-date text-6xl">{currentTime}</p>
 		</div>
-		<div class="flex justify-around items-center p-4 mt-4 gap-5">
+		<div class="flex justify-around items-center p-4 mt-4 gap-3">
 			{#each timezones as { city, country, timezone }}
 				<AnalogClock {city} {country} {timezone} />
-				<div class="h-52 border border-l-2 border-white"></div>
+				<div class="h-52 border border-l-2 border-gray-500"></div>
 			{/each}
 		</div>
 	</div>
