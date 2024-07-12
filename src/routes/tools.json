@@ -213,6 +213,17 @@
             }
         ]
     },
+    "Gradient-generator": {
+        "name": "Gradient Generator",
+        "link": "/Gradient-generator",
+        "description": "The Gradient Generator is a tool for Developers which allows you to create Gradient between 2 Colors and Copy its CSS Output.",
+        "contributors": [
+            {
+                "name": "Yash Mankar",
+                "githubId": "AraeneaCLI"
+            }
+        ]
+    },
     "image-base64-decode": {
         "name": "Image Base64 Decode",
         "link": "/image-base64-decode",
@@ -411,6 +422,49 @@
             }
         ]
     },
+    "encryptor-decryptor": {
+        "name": "Text Encryption Decryption Tool",
+        "link": "/encryptor-decryptor",
+        "description": "A Text Encryption Decryption Tool lets you scramble plain text into a coded message and then unscramble it back. These tools are useful for protecting sensitive information you share online.",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "Sakshi",
+                "githubId": "Sakshee-24"
+            },
+            {
+                "name": "Navjeet",
+                "githubId": "navjeet-lohan"
+            },
+            {
+                "name": "Swapnil",
+                "githubId": "swapniljoshi123"
+            },
+            {
+                "name": "Ravish",
+                "githubId": "RavishRanjancodes"
+            },
+            {
+                "name": "Kaneez",
+                "githubId": "Kaneezfatima19"
+            },
+            {
+                "name": "Riya",
+                "githubId": "riyasawant193"
+            },
+            {
+                "name": "Ram",
+                "githubId": "ryuk27"
+            },
+            {
+                "name": "Aman",
+                "githubId": "Amvic7"
+            }
+        ]
+    },
     "watermark-pdf": {
         "name": "Watermark PDF",
         "link": "/watermark-pdf",
@@ -425,6 +479,33 @@
             {
                 "name": "Hannan Satopay",
                 "githubId": "hannansatopay"
+            }
+        ]
+    },
+    "world-clock": {
+        "name": "World Clock",
+        "link": "/world-clock",
+        "description": "Times of World: showcases time of different countries",
+        "contributors": [
+            {
+                "name": "ILyas Sayyed",
+                "githubId": "MrPorsche"
+            },
+            {
+                "name": "K Vaishnavi",
+                "githubId": "Vaishnnavikothmirkar"
+            },
+            {
+                "name": "Joel Geo Abraham",
+                "githubId": "JoelAbraham16032002"
+            },
+            {
+                "name": "Silla Mariya Roy",
+                "githubId": "Silla03"
+            },
+            {
+                "name": "Kaberi manjari Prusty",
+                "githubId": "coder-kbb"
             }
         ]
     }
