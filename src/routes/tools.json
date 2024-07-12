@@ -80,7 +80,7 @@
             }
         ]
     },
-
+   
     "bionic-reading-converter": {
         "name": "Bionic Reading Converter",
         "link": "/bionic-reading-converter",
@@ -93,10 +93,6 @@
             {
                 "name": "Shaik Shams Tabrez",
                 "githubId": "shaik-shams-tabrez"
-            },
-            {
-                "name": "Pranjal Abhishek Singh",
-                "githubId": "PranjalSingh31"
             }
         ]
     },

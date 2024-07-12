@@ -33,17 +33,17 @@
 		}
 	};
 
-	function handleSubmit() {
-		// event.preventDefault();
+	function handleSubmit(event) {
+		event.preventDefault();
 		fetchBionicReading();
 	}
 </script>
 
 <div
-	class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 overflow-hidden rounded-lg"
+	class="card gap-16 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-1 overflow-hidden rounded-lg"
 >
 	<section class="bg-white w-50 dark:bg-gray-200">
-		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:px-12">
+		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:px-12 items-center">
 			<main>
 				<form on:submit={handleSubmit}>
 					<textarea
