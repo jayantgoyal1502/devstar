@@ -149,6 +149,37 @@
             }
         ]
     },
+    "css-loader-generator": {
+        "name": "",
+        "link": "/css-loader-generator",
+        "description": "",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "Prerana Patil",
+                "githubId": "Prerana-Patil1"
+            },
+            {
+                "name": "Juhi Vaidya",
+                "githubId": "juhi1113"
+            },
+            {
+                "name": "Dhyan Patel",
+                "githubId": "dhyanpatel18"
+            },
+            {
+                "name": "Melissa Sequeira",
+                "githubId": "melody2004"
+            },
+            {
+                "name": "Aryan Pange",
+                "githubId": "aryanpange"
+            }
+        ]
+    },
     "device-details": {
         "name": "Device Details",
         "link": "/device-details",
