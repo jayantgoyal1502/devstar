@@ -1,42 +1,4 @@
 {
-    "Gradient-generator": {
-        "name": "Gradient Generator",
-        "link": "/Gradient-generator",
-        "description": "The Gradient Generator is a tool for Developers which allows you to create Gradient between 2 Colors and Copy its CSS Output.",
-        "contributors": [
-            {
-                "name": "Yash Mankar",
-                "githubId": "AraeneaCLI"
-            }
-        ]
-    },
-    "Text-Statistics": {
-        "name": "Text Statistics",
-        "link": "/Text-Statistics",
-        "description": "The Text Statistics tool is designed to provide comprehensive analysis and insights into a given text. It helps users understand various attributes of their text by calculating and displaying the Total No. of Word count in the Text, The total number of characters in the text, The total number of sentences in the text, The total number of paragraphs in the text, The average length of words in the text, An estimate of the time it would take to read the text, The number of unique words used in the text, A table displaying the count of words based on their length (number of letters). This helps in analyzing the distribution of word lengths within the text.",
-        "contributors": [
-            {
-                "name": "Sujit Sambhaji Lendave",
-                "githubId": "Sujit747"
-            },
-            {
-                "name": "Shubham Karne",
-                "githubId": "shubhamkarne11"
-            },
-            {
-                "name": "Gyan Prakash",
-                "githubId": "gyanp28"
-            },
-            {
-                "name": "Sudhanshu Marudgan",
-                "githubId": "Sudhanshu-Marudgan"
-            },
-            {
-                "name": "Anoushka Ramankulat",
-                "githubId": "Anoushka-Ramankulath"
-            }
-        ]
-    },
     "add-prefix-suffix": {
         "name": "Add Prefix and Suffix",
         "link": "/add-prefix-suffix",
@@ -118,7 +80,25 @@
             }
         ]
     },
-   
+    "Bionic Reading Converter": {
+        "name": "Bionic Reading Converter",
+        "link": "/Bionic Reading Converter",
+        "description": "Enhances texts so that the most concise parts of words are highlighted.",
+        "contributors": [
+            {
+                "name": "Yash Jain",
+                "githubId": "YashJain999"
+            },
+            {
+                "name": "Shaik Shams Tabrez",
+                "githubId": "shaik-shams-tabrez"
+            },
+            {
+                "name": "Pranjal Abhishek Singh",
+                "githubId": "PranjalSingh31"
+            }
+        ]
+    },
     "bionic-reading-converter": {
         "name": "Bionic Reading Converter",
         "link": "/bionic-reading-converter",
@@ -191,6 +171,49 @@
             }
         ]
     },
+    "encryptor-decryptor": {
+        "name": "Text Encryption Decryption Tool",
+        "link": "/encryptor-decryptor",
+        "description": "A Text Encryption Decryption Tool lets you scramble plain text into a coded message and then unscramble it back. These tools are useful for protecting sensitive information you share online.",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "Sakshi",
+                "githubId": "Sakshee-24"
+            },
+            {
+                "name": "Navjeet",
+                "githubId": "navjeet-lohan"
+            },
+            {
+                "name": "Swapnil",
+                "githubId": "swapniljoshi123"
+            },
+            {
+                "name": "Ravish",
+                "githubId": "RavishRanjancodes"
+            },
+            {
+                "name": "Kaneez",
+                "githubId": "Kaneezfatima19"
+            },
+            {
+                "name": "Riya",
+                "githubId": "riyasawant193"
+            },
+            {
+                "name": "Ram",
+                "githubId": "ryuk27"
+            },
+            {
+                "name": "Aman",
+                "githubId": "Amvic7"
+            }
+        ]
+    },
     "file-converter": {
         "name": "File Converter",
         "link": "/file-converter",
@@ -199,6 +222,72 @@
             {
                 "name": "Mohammad Adil",
                 "githubId": "devilzs1"
+            }
+        ]
+    },
+    "Finance Calculator": {
+        "name": "",
+        "link": "/Finance Calculator",
+        "description": "",
+        "contributors": [
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            }
+        ]
+    },
+    "finance-calculator": {
+        "name": "Finance Calculator",
+        "link": "/finance-calculator",
+        "description": "Optimize your financial decisions with our comprehensive suite of online financial calculators. Whether you're planning investments, converting currencies, calculating your salary after deductions, or estimating home loan payments, our user-friendly tools have you covered. Explore our ROI Calculator, Currency Converter, Salary Calculator, GST Calculator, Home Loan Calculator, TVM Calculator, and Stock Return Calculator to harness the full potential of your financial planning. Make informed decisions and secure your financial future today!",
+        "contributors": [
+            {
+                "name": "Dalima Sahu",
+                "githubId": "DALIMA07"
+            },
+            {
+                "name": "Arushi Bhargava",
+                "githubId": "Arushibhargava"
+            },
+            {
+                "name": "Ayan Kamaria",
+                "githubId": "ayan2362003"
+            },
+            {
+                "name": "Noorjahan Ferdous",
+                "githubId": "nferdous2"
+            },
+            {
+                "name": "Zaid Nasim",
+                "githubId": "Ruwais-zaid"
+            },
+            {
+                "name": "Nisha Rai",
+                "githubId": "Rai-nisha"
+            },
+            {
+                "name": "Srushti Bhirud",
+                "githubId": "Srushti309"
+            },
+            {
+                "name": "Harshita Dalal",
+                "githubId": "Harshita-Dalal"
             }
         ]
     },
@@ -257,6 +346,33 @@
             }
         ]
     },
+    "jwt-decoder": {
+        "name": "JWT Decoder",
+        "link": "/jwt-decoder",
+        "description": "The JWT Decoder is a valuable tool that enables developers to decode JSON Web Tokens (JWT) and extract the information contained within them. By simply pasting a JWT string, this tool decodes the token and displays its header, payload, and signature components. Gain insights into the data stored in JWTs and verify their integrity with this efficient decoder. Simplify the process of working with JWTs and enhance your token validation tasks with this user-friendly tool.",
+        "contributors": [
+            {
+                "name": "Fazal",
+                "githubId": "Fazalparkar"
+            },
+            {
+                "name": "Aayush",
+                "githubId": "AayushPaigwar"
+            },
+            {
+                "name": "Jujhar",
+                "githubId": "jujharsingh2802"
+            },
+            {
+                "name": "Kunal",
+                "githubId": "KUNALL0ndhe"
+            },
+            {
+                "name": "Hitesh",
+                "githubId": "Honeykalra22"
+            }
+        ]
+    },
     "living-background-generator": {
         "name": "Living Background Generator",
         "link": "/living-background-generator",
@@ -286,7 +402,7 @@
     "Multi-timer": {
         "name": "Multi Timer (With Alarm)",
         "link": "/Multi-timer",
-        "description": "Build different times like: Count Up, Count Down, Reminder",
+        "description": "This app lets you set and save multiple timers with reminders or use a stopwatch to track time. Switch between timer and stopwatch modes, start, stop, reset, and delete timers, and record laps on the stopwatch. Get notified with a message and sound when a timer ends.",
         "contributors": [
             {
                 "name": "Ishaan Bhela",
@@ -348,6 +464,33 @@
             {
                 "name": "Rifat Perween",
                 "githubId": "rifatperween"
+            }
+        ]
+    },
+    "Random word everyday": {
+        "name": "",
+        "link": "/Random word everyday",
+        "description": "",
+        "contributors": [
+            {
+                "name": "ANKITA MISHRA",
+                "githubId": "ANKITAMISHRA29"
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
+            },
+            {
+                "name": "",
+                "githubId": ""
             }
         ]
     },
@@ -434,46 +577,61 @@
             }
         ]
     },
-    "encryptor-decryptor": {
-        "name": "Text Encryption Decryption Tool",
-        "link": "/encryptor-decryptor",
-        "description": "A Text Encryption Decryption Tool lets you scramble plain text into a coded message and then unscramble it back. These tools are useful for protecting sensitive information you share online.",
+    "SV-Placeholder-Generator": {
+        "name": "SVG Placeholder Generator",
+        "link": "/SV-Placeholder-Generator",
+        "description": "Generate svg images to use as a placeholder in your applications",
         "contributors": [
+            {
+                "name": "",
+                "githubId": ""
+            },
             {
                 "name": "ANKITA MISHRA",
                 "githubId": "ANKITAMISHRA29"
             },
             {
-                "name": "Sakshi",
-                "githubId": "Sakshee-24"
+                "name": "IQRA MIYAJI",
+                "githubId": "IqraMiyaji"
             },
             {
-                "name": "Navjeet",
-                "githubId": "navjeet-lohan"
+                "name": "AAKANKSH MISHRA",
+                "githubId": "Aaka22"
             },
             {
-                "name": "Swapnil",
-                "githubId": "swapniljoshi123"
+                "name": "HARSHALA PATIL",
+                "githubId": "Harshala15"
             },
             {
-                "name": "Ravish",
-                "githubId": "RavishRanjancodes"
+                "name": "ANUJA PATIL",
+                "githubId": "anujaappasopatil"
+            }
+        ]
+    },
+    "Text-Statistics": {
+        "name": "Text Statistics",
+        "link": "/Text-Statistics",
+        "description": "The Text Statistics tool is designed to provide comprehensive analysis and insights into a given text. It helps users understand various attributes of their text by calculating and displaying the Total No. of Word count in the Text, The total number of characters in the text, The total number of sentences in the text, The total number of paragraphs in the text, The average length of words in the text, An estimate of the time it would take to read the text, The number of unique words used in the text, A table displaying the count of words based on their length (number of letters). This helps in analyzing the distribution of word lengths within the text.",
+        "contributors": [
+            {
+                "name": "Sujit Sambhaji Lendave",
+                "githubId": "Sujit747"
             },
             {
-                "name": "Kaneez",
-                "githubId": "Kaneezfatima19"
+                "name": "Shubham Karne",
+                "githubId": "shubhamkarne11"
             },
             {
-                "name": "Riya",
-                "githubId": "riyasawant193"
+                "name": "Gyan Prakash",
+                "githubId": "gyanp28"
             },
             {
-                "name": "Ram",
-                "githubId": "ryuk27"
+                "name": "Sudhanshu Marudgan",
+                "githubId": "Sudhanshu-Marudgan"
             },
             {
-                "name": "Aman",
-                "githubId": "Amvic7"
+                "name": "Anoushka Ramankulat",
+                "githubId": "Anoushka-Ramankulath"
             }
         ]
     },
